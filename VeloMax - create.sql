@@ -1,3 +1,5 @@
+drop database if exists VeloMax;
+
 create database VeloMax;
 
 use VeloMax;
@@ -70,11 +72,11 @@ create table Commande (
     primary key(numero_C),
     foreign key(email_E) 
 		references Entreprise(email_E) 
-		on delete set null 
+		on delete no action 
         on update cascade,
     foreign key(email_P) 
 		references Particulier(email_P) 
-        on delete set null 
+        on delete no action 
         on update cascade
 );
 
@@ -126,11 +128,11 @@ create table Contient_B (
     primary key(numero_prod_B, numero_C),
     foreign key(numero_prod_B) 
 		references Bicyclette(numero_prod_B) 
-        on delete cascade 
+        on delete no action 
         on update cascade, 
     foreign key(numero_C) 
 		references Commande(numero_C) 
-        on delete cascade 
+        on delete no action 
         on update cascade
 );
 
@@ -141,11 +143,11 @@ create table Contient_P (
     primary key(numero_prod_P, numero_C),
     foreign key(numero_prod_P) 
 		references Pièce(numero_prod_P) 
-        on delete cascade 
+        on delete no action 
         on update cascade, 
     foreign key(numero_C) 
 		references Commande(numero_C) 
-        on delete cascade 
+        on delete no action 
         on update cascade
 );
 
@@ -157,9 +159,12 @@ create table Adhere (
     foreign key(numero_programme) 
 		references Fidelio(numero_programme) 
         on delete no action 
-        on update cascade,
+        on update no action,
     foreign key(email_P) 
 		references Particulier(email_P) 
-        on delete cascade 
-        on update cascade 
+        on delete no action 
+        on update no action 
 );
+drop user if exists 'test'@'localhost';
+create user 'test'@'localhost' identified by 'password';
+grant all PRIVILEGES ON `VeloMax` . * TO 'test'@'localhost';
