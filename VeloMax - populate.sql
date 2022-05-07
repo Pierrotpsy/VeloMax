@@ -85,7 +85,7 @@ insert into piece value (20204,'S74','2020-01-01','2024-12-30',1,'Panier',27);
 #table Fournisseur
 insert into Fournisseur value (12345678901234,'Cyclable Paris','01 23 45 67 89','12 Rue de la Paix 75003 Paris',1);
 insert into Fournisseur value (12345678901235,'V hello','01 22 33 44 55','109 Avenue du general De Gaulle 78000 Versailles',2);
-insert into Fournisseur value (123456789012346, 'bi6cle','06 09 56 76 26','101 Avenue Lénoard de Vinci 92400 Courbevoie',3);
+insert into Fournisseur value (12345678901236, 'bi6cle','06 09 56 76 26','101 Avenue Lénoard de Vinci 92400 Courbevoie',3);
 insert into Fournisseur value (12345678901237,'VelHell','06 66 66 66 66','666 Rue de Lenfer 59140 Dunkerque',4);
 
 #table Entreprise
