@@ -107,10 +107,10 @@ insert into Commande value ('5', '2022-02-11', '2022-02-18', '115 rue de la plag
 insert into Commande value ('6', '2022-03-19', '2022-04-01', '15 avenue du Mans, 72000 Le Mans', null, 'jacques.celert@vinciecovelo.fr');
 
 #table Fidelio
-insert into Fidelio values(1 , 'Fidelio',15, 1,0.05);
-insert into Fidelio values(2 , 'Fidelio Or',25, 2,0.08);
-insert into Fidelio values(3 , 'Fidelio Platine',60, 2,0.1);
-insert into Fidelio values(4 , 'Fidelio Max',100, 3,0.12);
+insert into Fidelio values(1 , 'Fidelio',15, 1,5);
+insert into Fidelio values(2 , 'Fidelio Or',25, 2,10);
+insert into Fidelio values(3 , 'Fidelio Platine',60, 2,15);
+insert into Fidelio values(4 , 'Fidelio Max',100, 3,20);
 
 #table Assembler
 insert into Assembler value (101,10106);
