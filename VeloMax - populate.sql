@@ -83,10 +83,10 @@ insert into Pièce value (20203,'S73','2019-07-01','2024-06-29',3,'Panier',31);
 insert into Pièce value (20204,'S74','2020-01-01','2024-12-30',1,'Panier',27);
 
 #table Fournisseur
-insert into Fournisseur value (12345678901234,'Cyclable Paris','0123456789','12 Rue de la Paix 75003 Paris',1);
-insert into Fournisseur value (12345678901235,'V hello','0122334455','109 Avenue du general De Gaulle 78000 Versailles',2);
-insert into Fournisseur value (12345678901236, 'bi6cle','0609567626','101 Avenue Lénoard de Vinci 92400 Courbevoie',3);
-insert into Fournisseur value (12345678901237,'VelHell','0666666666','666 Rue de Lenfer 59140 Dunkerque',4);
+insert into Fournisseur value ('12345678901234','Cyclable Paris','0123456789','12 Rue de la Paix 75003 Paris',1);
+insert into Fournisseur value ('12345678901235','V hello','0122334455','109 Avenue du general De Gaulle 78000 Versailles',2);
+insert into Fournisseur value ('12345678901236', 'bi6cle','0609567626','101 Avenue Lénoard de Vinci 92400 Courbevoie',3);
+insert into Fournisseur value ('12345678901237','VelHell','0666666666','666 Rue de Lenfer 59140 Dunkerque',4);
 
 #table Entreprise
 insert into Entreprise value('ffv@gmail.com','Fédération Française de Vélo','0146537239','SMITH','John','12 Avenue du jour de la victoire','Paris',75007,'IDF',0.1);
