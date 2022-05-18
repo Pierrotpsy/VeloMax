@@ -88,15 +88,32 @@ namespace BDD_MERLIN_MOUTY
             string codePostalE = TextBoxCodePostalE.Text;
             string provinceE = TextBoxProvinceE.Text;
             string remiseE = TextBoxRemiseE.Text;
-            string insertQuery = $"insert into Particulier value ('{emailE}','{nomE}','{telE}','{nomContactE}','{prenomContactE}','{rueE}','{villeE}','{codePostalE}','{provinceE}',{remiseE})";
+            string insertQuery = $"insert into Entreprise value ('{emailE}','{nomE}','{telE}','{nomContactE}','{prenomContactE}','{rueE}','{villeE}','{codePostalE}','{provinceE}',{remiseE})";
             ExecuteQuery(insertQuery);
             BoxClear();
         }
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string emailE = row.Row.ItemArray[0].ToString();
+            string insertQuery = $"delete from Entreprise where email_E = '{emailE}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string emailE = row.Row.ItemArray[0].ToString();
+            string nomE = row.Row.ItemArray[1].ToString();
+            string telE = row.Row.ItemArray[2].ToString();
+            string nomContactE = row.Row.ItemArray[3].ToString();
+            string prenomContactE = row.Row.ItemArray[4].ToString();
+            string rueE = row.Row.ItemArray[5].ToString();
+            string villeE = row.Row.ItemArray[6].ToString();
+            string codePostalE = row.Row.ItemArray[7].ToString();
+            string provinceE = row.Row.ItemArray[8].ToString();
+            string remiseE = row.Row.ItemArray[9].ToString();
+            string insertQuery = $"update Entreprise set nom_E = '{nomE}', telephone_E = '{telE}', nom_contact_E = '{nomContactE}', prenom_contact_E = '{prenomContactE}', rue_E = '{rueE}', ville_E = '{villeE}', code_postal_E = '{codePostalE}', province_E = '{provinceE}', remise_E = '{remiseE}' where email_E = '{emailE}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {

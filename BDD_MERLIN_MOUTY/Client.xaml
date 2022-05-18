@@ -152,21 +152,37 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Button Name="BouttonAjouter" Content="Ajouter" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAjouter_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                <Viewbox Stretch="Uniform">
+                <Button Name="BouttonAjouter" Content="Ajouter" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAjouter_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
             </Grid>
             <Grid Grid.Row="1">
-                <Button Name="BouttonRetirer" Content="Retirer"  Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonRetirer_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonRetirer" Content="Retirer"  Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonRetirer_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
             </Grid>
             <Grid Grid.Row="2">
-                <Button Name="BouttonMAJ" Content="Mettre à jour"  Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonMAJ_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonMAJ" Content="Mettre à jour"  Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonMAJ_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
             </Grid>
             <Grid Grid.Row="3">
-                <Button Name="BouttonAfficher" Content="Afficher"  Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficher_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonAfficher" Content="Afficher"  Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficher_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
             </Grid>
             <Grid Grid.Row="4">
-                <Button Name="BouttonMenu" Content="Menu"  Width="192" Height="108" Foreground="#3159C9" FontSize="24" Click="BouttonMenu_Click" ClickMode="Release" Background="#65A1F1" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonExportJSON" Content="Exporter JSON"  Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonExporterJSON_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonMenu" Content="Menu"  Margin="20 20 20 20" Width="192" Height="108" Foreground="#3159C9" FontSize="24" Click="BouttonMenu_Click" ClickMode="Release" Background="#65A1F1" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
             </Grid>
         </Grid>
     </Grid>

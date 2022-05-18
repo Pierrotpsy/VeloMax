@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDD_MERLIN_MOUTY"
         mc:Ignorable="d"
-        Title="Statistiques" Height="450" Width="800" Background="#1C1358" WindowState="Maximized">
+        Title="Statistiques" Height="1080" Width="1920" Background="#1C1358" WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -39,39 +39,51 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Viewbox Stretch="Uniform">
-                        <TextBlock Text="n° Commande" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                        <TextBlock Text="Programme d'adhésion" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
                     </Viewbox>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Viewbox Stretch="Uniform">
-                        <ComboBox Name="ComboBoxProgramme" Width="400" Height="70" Margin="50 0 20 0" MaxDropDownHeight="600" FontSize="24" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded"  Background="#9B41E0" BorderBrush="#5B50B9" BorderThickness="4" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
-                            <ComboBox.ItemContainerStyle>
-                                <Style TargetType="ComboBoxItem">
-                                    <Setter Property="Foreground" Value="White"/>
-                                    <Setter Property="BorderBrush" Value="#5B50B9"/>
-                                </Style>
-                            </ComboBox.ItemContainerStyle>
-                            <ComboBoxItem Background="#9B41E0">Fidelio</ComboBoxItem>
-                            <ComboBoxItem Background="#1C1358">Fidelio Or</ComboBoxItem>
-                            <ComboBoxItem Background="#9B41E0">Fidelio Platine</ComboBoxItem>
-                            <ComboBoxItem Background="#1C1358">Fidelio Max</ComboBoxItem>
-                        </ComboBox>
-                    </Viewbox>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Viewbox Stretch="Uniform">
+                            <ComboBox Name="ComboBoxProgramme" Width="400" Height="70" Margin="50 0 20 0" MaxDropDownHeight="600" FontSize="24" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded"  Background="#9B41E0" BorderBrush="#5B50B9" BorderThickness="4" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="BorderBrush" Value="#5B50B9"/>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                                <ComboBoxItem Background="#9B41E0">Fidelio</ComboBoxItem>
+                                <ComboBoxItem Background="#1C1358">Fidelio Or</ComboBoxItem>
+                                <ComboBoxItem Background="#9B41E0">Fidelio Platine</ComboBoxItem>
+                                <ComboBoxItem Background="#1C1358">Fidelio Max</ComboBoxItem>
+                                <ComboBoxItem Background="#9B41E0">All</ComboBoxItem>
+                            </ComboBox>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Viewbox Stretch="Uniform">
+                            <Button Name="AfficherProgramme" Content="Go" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficherProgramme_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">
                 <Viewbox Stretch="Uniform">
-                    <Button Name="DateExpiration" Content="Date expiration" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAjouter_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                    <Button Name="DateExpiration" Content="Date expiration" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonDateExpiration_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
                 </Viewbox>
             </Grid>
             <Grid Grid.Row="3">
                 <Viewbox Stretch="Uniform">
-                    <Button Name="MeilleursClients" Content="Meilleurs Clients" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAjouter_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                    <Button Name="MeilleursClients" Content="Meilleurs Clients" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonMeilleursClients_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
                 </Viewbox>
             </Grid>
             <Grid Grid.Row="4">
                 <Viewbox Stretch="Uniform">
-                    <Button Name="ExportXML" Content="Exporter XML" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAjouter_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                    <Button Name="ExportDonnéesFidélio" Content="Exporter XML" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonExportXML_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
                 </Viewbox>
             </Grid>
         </Grid>
@@ -90,7 +102,45 @@
             </ScrollViewer>
         </Grid>
         <Grid Grid.Column="2">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Text="Informations générales" FontSize="100" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,20" FontFamily="Fonts/#Simply Rounded">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.8">
+                                <GradientStop Color="#65A1F1" Offset="0.2" />
+                                <GradientStop Color="#9B41E0" Offset="0.9" />
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Name="Stats1" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Name="Stats2" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Name="Stats3" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonMenu" Content="Menu"  Width="192" Height="108" Margin="0 20 0 20" Foreground="#3159C9" FontSize="24" Click="BouttonMenu_Click" ClickMode="Release" Background="#65A1F1" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

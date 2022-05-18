@@ -14,6 +14,7 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace BDD_MERLIN_MOUTY
 {
@@ -138,6 +139,46 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             BoxClear();
             CloseConnexion();
+        }
+        private void BouttonExporterJSON_Click(object sender, RoutedEventArgs e)
+        {
+            OpenConnexion();
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "select email_P, date_adhesion,  date_add(date_adhesion, interval duree_programme year) as 'date expiration' from Fidelio natural join Adhere where date_add(date_adhesion, interval duree_programme year) < date(now() + interval 2 month)";
+            string monFichier = "Programme.json";
+            DataTable dt2 = new DataTable();
+            dt2.Load(command.ExecuteReader());
+            StreamWriter writer = new StreamWriter(monFichier);
+            JsonTextWriter jwriter = new JsonTextWriter(writer);
+
+            jwriter.WriteStartObject();
+            jwriter.WritePropertyName("Fidelio");
+
+            jwriter.WriteStartArray();
+            for (int i = 0; i < dt2.Rows.Count; i++)
+            {
+                jwriter.WriteStartObject();
+                jwriter.WritePropertyName("email");
+                jwriter.WriteValue(dt2.Rows[i][0]);
+                jwriter.WriteEndObject();
+
+                jwriter.WriteStartObject();
+                jwriter.WritePropertyName("date_adhesion");
+                jwriter.WriteValue(dt2.Rows[i][1]);
+                jwriter.WriteEndObject();
+
+                jwriter.WriteStartObject();
+                jwriter.WritePropertyName("date_expiration");
+                jwriter.WriteValue(dt2.Rows[i][2]);
+                jwriter.WriteEndObject();
+            }
+
+            jwriter.WriteEndObject();
+
+            jwriter.Close();
+            writer.Close();
+            CloseConnexion();
+            MessageBox.Show("Export Réussi");
         }
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {

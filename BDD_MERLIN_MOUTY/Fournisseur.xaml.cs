@@ -84,9 +84,21 @@ namespace BDD_MERLIN_MOUTY
         }
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string siretF= row.Row.ItemArray[0].ToString();
+            string insertQuery = $"delete from Fournisseur where siret_F = '{siretF}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string siretF = row.Row.ItemArray[0].ToString();
+            string nomF = row.Row.ItemArray[1].ToString();
+            string contactF = row.Row.ItemArray[2].ToString();
+            string adresseF = row.Row.ItemArray[3].ToString();
+            string libelleF = row.Row.ItemArray[4].ToString();
+            string insertQuery = $"update Fournisseur set nom_F = '{nomF}', contact_F = '{contactF}', adresse_F = '{adresseF}', libelle_F = '{libelleF}' where siret_F = '{siretF}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {

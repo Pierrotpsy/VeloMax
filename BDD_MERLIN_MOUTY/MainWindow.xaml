@@ -33,6 +33,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
                 <ColumnDefinition Width =" 100"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="FidelioGestionButton" Grid.Column="1" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoFidelio"  BorderBrush="{x:Null}">
@@ -60,19 +63,34 @@
                     <ImageBrush ImageSource="images/LogoFournisseur.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="PieceButton" Grid.Column="6" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoPiece"  BorderBrush="{x:Null}">
+            <Button x:Name="FournirButton" Grid.Column="6" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoFournir"  BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="images/LogoFournir.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="PieceButton" Grid.Column="7" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoPiece"  BorderBrush="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="images/LogoPiece.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="CommandeButton" Grid.Column="7" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoCommande"  BorderBrush="{x:Null}">
+            <Button x:Name="CommandeButton" Grid.Column="8" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoCommande"  BorderBrush="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="images/LogoCommande.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="VeloButton" Grid.Column="8" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoVelo"  BorderBrush="{x:Null}">
+            <Button x:Name="VeloButton" Grid.Column="9" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoVelo"  BorderBrush="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="images/LogoVelo.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="StatsButton" Grid.Column="10" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoStats"  BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="images/LogoStats.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="StockButton" Grid.Column="11" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GoStock"  BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="images/LogoStock.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
         </Grid>

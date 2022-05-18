@@ -80,14 +80,24 @@ namespace BDD_MERLIN_MOUTY
         }
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string numProg = row.Row.ItemArray[0].ToString();
+            string emailP = row.Row.ItemArray[1].ToString();
+            string insertQuery = $"delete from Adhere where email_P = '{emailP}' and numero_programme = '{numProg}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string numProg = row.Row.ItemArray[0].ToString();
+            string emailP = row.Row.ItemArray[1].ToString();
+            string date = row.Row.ItemArray[2].ToString();
+            string insertQuery = $"update Adhere set numero_programme = '{numProg}', date_adhesion = '{date}' where email_P = '{emailP}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
-
             MySqlCommand command = connection.CreateCommand();
             if (TextBoxEmailP.Text != "")
             {

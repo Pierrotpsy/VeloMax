@@ -14,8 +14,11 @@
     <None Remove="images\LogoEntreprise.png" />
     <None Remove="images\LogoFidelio.png" />
     <None Remove="images\LogoFidelioGestion.png" />
+    <None Remove="images\LogoFournir.png" />
     <None Remove="images\LogoFournisseur.png" />
     <None Remove="images\LogoPiece.png" />
+    <None Remove="images\LogoStats.png" />
+    <None Remove="images\LogoStock.png" />
     <None Remove="images\LogoVelo.png" />
     <None Remove="images\wallpaper.jpg" />
     <None Remove="wallpaper.jpg" />
@@ -29,6 +32,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.29" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,10 +51,19 @@
     <Resource Include="images\LogoFidelioGestion.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="images\LogoFournir.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="images\LogoFournisseur.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\LogoPiece.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\LogoStats.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\LogoStock.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\LogoVelo.png">

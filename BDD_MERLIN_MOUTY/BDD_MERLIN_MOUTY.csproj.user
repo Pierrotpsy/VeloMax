@@ -22,6 +22,9 @@
     <Compile Update="Fidelio.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Fournir.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Fournisseur.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Fidelio.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Fournir.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Fournisseur.xaml">

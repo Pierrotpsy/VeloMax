@@ -18,24 +18,23 @@ using System.Linq;
 namespace BDD_MERLIN_MOUTY
 {
     /// <summary>
-    /// Logique d'interaction pour Fidelio.xaml
+    /// Logique d'interaction pour Fournir.xaml
     /// </summary>
-    public partial class Fidelio : Window
+    public partial class Fournir : Window
     {
-        //string cs = @"server=localhost;userid=test;password=password;database=VeloMax";
-
         MySqlConnection connection = new MySqlConnection("SERVER=localhost;userid=test;password=password;DATABASE=VeloMax");
-        public Fidelio()
+        public Fournir()
         {
             InitializeComponent();
         }
         private void BoxClear()
         {
-            TextBoxNumProg.Text = "";
-            TextBoxDescProg.Text = "";
-            TextBoxCoutProg.Text = "";
-            TextBoxDureeProg.Text = "";
-            TextBoxRabaisProg.Text = "";
+            TextBoxSiretF.Text = "";
+            TextBoxNumProdP.Text = "";
+            TextBoxNumProdF.Text = "";
+            TextBoxNomF.Text = "";
+            TextBoxDelaiF.Text = "";
+            TextBoxPrixF.Text = "";
         }
         public void OpenConnexion()
         {
@@ -73,46 +72,63 @@ namespace BDD_MERLIN_MOUTY
         }
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
-            string numProg = TextBoxNumProg.Text;
-            string descProg = TextBoxDescProg.Text;
-            string coutProg = TextBoxCoutProg.Text;
-            string dureeProg = TextBoxDureeProg.Text;
-            string rabaisProg = TextBoxRabaisProg.Text;
-            string insertQuery = $"insert into Fidelio value ({numProg},'{descProg}',{coutProg},{dureeProg},{rabaisProg})";
+            string siretF = TextBoxSiretF.Text;
+            string numProdP = TextBoxNumProdP.Text;
+            string numProdF = TextBoxNumProdF.Text;
+            string nomF = TextBoxNomF.Text;
+            string delaiF = TextBoxDelaiF.Text;
+            string prixF = TextBoxPrixF.Text;
+            string insertQuery = $"insert into Fourni value ({siretF},{numProdP},{numProdF},'{nomF}',{delaiF},{prixF})";
             ExecuteQuery(insertQuery);
             BoxClear();
         }
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
-            string numProg = row.Row.ItemArray[0].ToString();
-            string insertQuery = $"delete from Fidelio where numero_programme = '{numProg}'";
+            string siretF = row.Row.ItemArray[0].ToString();
+            string numProdP = row.Row.ItemArray[1].ToString();
+            string insertQuery = $"delete from Fourni where siret_F = '{siretF}' and numero_prod_P = '{numProdP}'";
             ExecuteQuery(insertQuery);
         }
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
-            string numProg = row.Row.ItemArray[0].ToString();
-            string descProg = row.Row.ItemArray[1].ToString();
-            string coutProg = row.Row.ItemArray[2].ToString();
-            string dureeProg = row.Row.ItemArray[3].ToString();
-            string rabaisProg = row.Row.ItemArray[4].ToString();
-            string insertQuery = $"update Fidelio set description_programme = '{descProg}', cout_programme = '{coutProg}', duree_programme = '{dureeProg}', rabais_programme = '{rabaisProg}' where  numero_programme = '{numProg}'";
+            string siretF = row.Row.ItemArray[0].ToString();
+            string numProdP = row.Row.ItemArray[1].ToString();
+            string numProdF = row.Row.ItemArray[2].ToString();
+            string nomF = row.Row.ItemArray[3].ToString();
+            string delaiF = row.Row.ItemArray[4].ToString();
+            string prixF = row.Row.ItemArray[5].ToString();
+            string insertQuery = $"update Fourni set numero_prod_F = '{numProdF}', nom_fournisseur_P = '{nomF}', delai_F = '{delaiF}', prix_F = '{prixF}' where siret_F = '{siretF}' and numero_prod_P='{numProdP}'";
             ExecuteQuery(insertQuery);
         }
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
-
             MySqlCommand command = connection.CreateCommand();
-            if (TextBoxNumProg.Text != "")
+            if (TextBoxSiretF.Text != "")
             {
-                string numProg = TextBoxNumProg.Text;
-                command.CommandText = $"select * from Fidelio where numero_programme like '%{numProg}%'";
+                string siretF = TextBoxSiretF.Text;
+                command.CommandText = $"select * from Fourni where siret_F like '%{siretF}%'";
+            }
+            else if (TextBoxNumProdP.Text != "")
+            {
+                string numProdP = TextBoxNumProdP.Text;
+                command.CommandText = $"select * from Fourni where numero_prod_P like '%{numProdP}%'";
+            }
+            else if (TextBoxNumProdF.Text != "")
+            {
+                string numProdF = TextBoxNumProdF.Text;
+                command.CommandText = $"select * from Fourni where numero_prod_F like '%{numProdF}%'";
+            }
+            else if (TextBoxNomF.Text != "")
+            {
+                string nomF = TextBoxNomF.Text;
+                command.CommandText = $"select * from Fourni where nom_fournisseur_P like '%{nomF}%'";
             }
             else
             {
-                command.CommandText = $"select * from Fidelio";
+                command.CommandText = $"select * from Fourni";
             }
             DataTable dt = new DataTable();
             dt.Load(command.ExecuteReader());

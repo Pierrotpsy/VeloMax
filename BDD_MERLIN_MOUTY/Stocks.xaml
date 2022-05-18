@@ -5,8 +5,208 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDD_MERLIN_MOUTY"
         mc:Ignorable="d"
-        Title="Stocks" Height="450" Width="800" Background="#1C1358" WindowState="Maximized">
+        Title="Stocks" Height="1080" Width="1920" Background="#1C1358" WindowState="Maximized">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Text="Stocks" FontSize="100" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,20" FontFamily="Fonts/#Simply Rounded">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.8">
+                                <GradientStop Color="#65A1F1" Offset="0.2" />
+                                <GradientStop Color="#9B41E0" Offset="0.9" />
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonStockP" Content="Stocks Pièces" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonStockP_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonStockV" Content="Stocks Vélos" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonStockV_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonStockF" Content="Stocks Fournisseurs" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="20" Click="BouttonStockF_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonStockFaibles" Content="Stocks Faibles" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonStocksFaibles_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonMenu" Content="Menu" Margin="20 20 20 20" Width="192" Height="108" Foreground="#3159C9" FontSize="24" Click="BouttonMenu_Click" ClickMode="Release" Background="#65A1F1" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonPiècesOrderByPrix" Content="Trier par prix" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonPièceOrderByPrix_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonVelosOrderByPrixB" Content="Trier par prix" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonVelosOrderByPrixB_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonFournisseursOrderByDelaiF" Content="Trier par délai" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonFournisseursOrderByDelaiF_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonAfficherStockFaible" Content="Afficher" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficherStocksFaibles_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonPiècesOrderByDateDisc" Content="Trier par disc" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonPièceOrderByDateDisc_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonVelosOrderByGrandeurB" Content="Trier par grandeur" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="22" Click="BouttonVelosOrderByGrandeurB_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonFournisseursOrderByLibelleF" Content="Trier par libelle" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonFournisseursOrderByLibelleF_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform">
+                    <Button Name="BouttonExporterXMLStockFaibles" Content="Exporter XML" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonExporterXMLStocksFaibles_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Name="TextBlockTypePiece" Text="Affichage Type Pièce" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                    </Viewbox>
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Name="TextBlockLigneProduit" Text="Affichage Ligne Produit" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Viewbox Stretch="Uniform">
+                        <ComboBox Name="ComboBoxTypePiece" Width="400" Height="70" Margin="50 0 20 0" MaxDropDownHeight="600" FontSize="24" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded"  Background="#9B41E0" BorderBrush="#5B50B9" BorderThickness="4" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="ComboBoxItem">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="#5B50B9"/>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBoxItem Background="#9B41E0">Cadre</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Guidon</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Freins</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Selle</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Dérailleur Avant</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Dérailleur Arrière</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Roue Avant</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Roue Arrière</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Réflecteurs</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Pédalier</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Ordinateur</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Panier</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">All</ComboBoxItem>
+                        </ComboBox>
+                    </Viewbox>
+                    <Viewbox Stretch="Uniform">
+                        <ComboBox Name="ComboBoxLigneProduit" Width="400" Height="70" Margin="50 0 20 0" MaxDropDownHeight="600" FontSize="24" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded"  Background="#9B41E0" BorderBrush="#5B50B9" BorderThickness="4" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="ComboBoxItem">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="#5B50B9"/>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBoxItem Background="#9B41E0">VTT</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Vélo de course</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Classique</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">BMX</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">All</ComboBoxItem>
+                        </ComboBox>
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Viewbox Stretch="Uniform">
+                        <Button Name="AfficherTypePièce" Content="Afficher" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficherTypePiece_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                    </Viewbox>
+                    <Viewbox Stretch="Uniform">
+                        <Button Name="AfficherLigneProduit" Content="Afficher" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficherLigneProduit_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Name="TextBlockGrandeur" Text="Affichage Grandeur" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Viewbox Stretch="Uniform">
+                        <ComboBox Name="ComboBoxGrandeur" Width="400" Height="70" Margin="50 0 20 0" MaxDropDownHeight="600" FontSize="24" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded"  Background="#9B41E0" BorderBrush="#5B50B9" BorderThickness="4" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="ComboBoxItem">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="#5B50B9"/>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBoxItem Background="#9B41E0">Adulte</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Homme</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Femme</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Jeune</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">Garçon</ComboBoxItem>
+                            <ComboBoxItem Background="#1C1358">Fille</ComboBoxItem>
+                            <ComboBoxItem Background="#9B41E0">All</ComboBoxItem>
+                        </ComboBox>
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Viewbox Stretch="Uniform">
+                        <Button Name="AfficherGrandeur" Content="Afficher" Margin="20 20 20 20" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficherGrandeur_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="2">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Foreground="#5B50B9">
+                <DataGrid Name="dataGrid" ItemsSource="{Binding}" Background="#1C1358" AlternatingRowBackground="#5B50B9" RowBackground="#272557" Foreground="White" BorderBrush="#5B50B9" FontFamily="Fonts/#Simply Rounded" FontSize="15">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#9B41E0"/>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridRowHeader}">
+                            <Setter Property="Background" Value="#1C1358"/>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>

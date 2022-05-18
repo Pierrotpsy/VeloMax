@@ -1,0 +1,150 @@
+﻿<Window x:Class="BDD_MERLIN_MOUTY.Fournir"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BDD_MERLIN_MOUTY"
+        mc:Ignorable="d"
+        Title="Fournir" Height="1080" Width="1920" Background="#1C1358" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Text="Fournir" FontSize="100" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,20" FontFamily="Fonts/#Simply Rounded">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.8">
+                                <GradientStop Color="#65A1F1" Offset="0.2" />
+                                <GradientStop Color="#9B41E0" Offset="0.9" />
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Viewbox Stretch="Uniform">
+                    <TextBox Name="TextBoxSiretF"  Margin="50 0 20 0" Width="400" Height="70" Background="#9B41E0" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9" BorderThickness="4"></TextBox>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Viewbox Stretch="Uniform">
+                    <TextBox Name="TextBoxNumProdP"  Margin="50 0 20 0" Width="400" Height="70" Background="#9B41E0" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9" BorderThickness="4"></TextBox>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Viewbox Stretch="Uniform">
+                    <TextBox Name="TextBoxNumProdF"  Margin="50 0 20 0" Width="400" Height="70" Background="#9B41E0" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9" BorderThickness="4"></TextBox>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Viewbox Stretch="Uniform">
+                    <TextBox Name="TextBoxNomF"  Margin="50 0 20 0" Width="400" Height="70" Background="#9B41E0" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9" BorderThickness="4"></TextBox>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Viewbox Stretch="Uniform">
+                    <TextBox Name="TextBoxDelaiF"  Margin="50 0 20 0" Width="400" Height="70" Background="#9B41E0" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9" BorderThickness="4"></TextBox>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="6">
+                <Viewbox Stretch="Uniform">
+                    <TextBox Name="TextBoxPrixF"  Margin="50 0 20 0" Width="400" Height="70" Background="#9B41E0" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9" BorderThickness="4"></TextBox>
+                </Viewbox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Text="Siret Fournisseur" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Grid.Row="2" Text="N° prod pièce" Margin="25 0 25 0" Foreground="#65A1F1" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Grid.Row="3" Text="N° prod fournisseur" Margin="25 0 25 0" Foreground="White" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Grid.Row="3" Text="Nom fournisseur" Margin="25 0 25 0" Foreground="White" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Grid.Row="3" Text="Délai fournisseur" Margin="25 0 25 0" Foreground="White" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="6">
+                <Viewbox Stretch="Uniform">
+                    <TextBlock Grid.Row="3" Text="Prix fournisseur" Margin="25 0 25 0" Foreground="White" FontSize="36" VerticalAlignment="Center" FontFamily="Fonts/#Simply Rounded"></TextBlock>
+                </Viewbox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="2">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Foreground="#5B50B9">
+                <DataGrid Name="dataGrid" ItemsSource="{Binding}" Background="#1C1358" AlternatingRowBackground="#5B50B9" RowBackground="#272557" Foreground="White" BorderBrush="#5B50B9" FontFamily="Fonts/#Simply Rounded" FontSize="15">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#9B41E0"/>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridRowHeader}">
+                            <Setter Property="Background" Value="#1C1358"/>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Button Name="BouttonAjouter" Content="Ajouter" Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAjouter_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Name="BouttonRetirer" Content="Retirer"  Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonRetirer_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Name="BouttonMAJ" Content="Mettre à jour"  Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonMAJ_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Button Name="BouttonAfficher" Content="Afficher"  Width="192" Height="108" Foreground="White" FontSize="24" Click="BouttonAfficher_Click" ClickMode="Release" Background="#9B41E0" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Button Name="BouttonMenu" Content="Menu"  Width="192" Height="108" Foreground="#3159C9" FontSize="24" Click="BouttonMenu_Click" ClickMode="Release" Background="#65A1F1" FontFamily="Fonts/#Simply Rounded" BorderBrush="#5B50B9"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

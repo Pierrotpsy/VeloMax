@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<StockFaible>
+  <numero>10102</numero>
+  <description>C02</description>
+  <quantite>1</quantite>
+  <numero>10106</numero>
+  <description>C32</description>
+  <quantite>2</quantite>
+  <numero>10108</numero>
+  <description>C43</description>
+  <quantite>1</quantite>
+  <numero>10404</numero>
+  <description>S35</description>
+  <quantite>2</quantite>
+  <numero>10405</numero>
+  <description>S36</description>
+  <quantite>1</quantite>
+  <numero>10503</numero>
+  <description>DV41</description>
+  <quantite>0</quantite>
+  <numero>10504</numero>
+  <description>DV57</description>
+  <quantite>1</quantite>
+  <numero>10701</numero>
+  <description>R1</description>
+  <quantite>2</quantite>
+  <numero>10704</numero>
+  <description>R19</description>
+  <quantite>1</quantite>
+  <numero>10802</numero>
+  <description>R12</description>
+  <quantite>0</quantite>
+  <numero>10806</numero>
+  <description>R47</description>
+  <quantite>2</quantite>
+  <numero>20204</numero>
+  <description>S74</description>
+  <quantite>1</quantite>
+</StockFaible>

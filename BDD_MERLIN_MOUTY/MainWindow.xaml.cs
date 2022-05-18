@@ -54,6 +54,12 @@ namespace BDD_MERLIN_MOUTY
             pageFournisseur.Show();
             this.Close();
         }
+        private void GoFournir(object sender, RoutedEventArgs e)
+        {
+            Fournir pageFournir = new Fournir();
+            pageFournir.Show();
+            this.Close();
+        }
         private void GoPiece(object sender, RoutedEventArgs e)
         {
             Piece pagePiece = new Piece();
@@ -70,6 +76,18 @@ namespace BDD_MERLIN_MOUTY
         {
             Velo pageVelo= new Velo();
             pageVelo.Show();
+            this.Close();
+        }
+        private void GoStats(object sender, RoutedEventArgs e)
+        {
+            Statistiques pageStats = new Statistiques();
+            pageStats.Show();
+            this.Close();
+        }
+        private void GoStock(object sender, RoutedEventArgs e)
+        {
+            Stocks pageStocks = new Stocks();
+            pageStocks.Show();
             this.Close();
         }
     }

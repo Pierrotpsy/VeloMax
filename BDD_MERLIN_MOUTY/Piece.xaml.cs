@@ -89,9 +89,24 @@ namespace BDD_MERLIN_MOUTY
         }
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string numProdP = row.Row.ItemArray[0].ToString();
+            string insertQuery = $"delete from Pièce where numero_prod_P = '{numProdP}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string numProdP = row.Row.ItemArray[0].ToString();
+            string descProdP = row.Row.ItemArray[1].ToString();
+            string dateIntroP = row.Row.ItemArray[2].ToString();
+            string dateDiscP = row.Row.ItemArray[3].ToString();
+            string quantiteP = row.Row.ItemArray[4].ToString();
+            string typeP = row.Row.ItemArray[5].ToString();
+            string prixP = row.Row.ItemArray[6].ToString();
+            //date_intro_P = '{dateIntroP}', date_disc_P = '{dateDiscP}'
+            string insertQuery = $"update Pièce set desc_prod_P = '{descProdP}', quantite_P = '{quantiteP}', type_P = '{typeP}', prix_P = '{prixP}' where numero_prod_P = '{numProdP}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {

@@ -157,7 +157,7 @@ namespace BDD_MERLIN_MOUTY {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BDD_MERLIN_MOUTY;V1.0.0.0;component/piece.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BDD_MERLIN_MOUTY;component/piece.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Piece.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -46,3 +46,10 @@ C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcorea
 C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Velo.baml
 C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Fidelio.g.cs
 C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Fidelio.baml
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Fournir.g.cs
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Statistiques.g.cs
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Stocks.g.cs
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Fournir.baml
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Statistiques.baml
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\obj\Debug\netcoreapp3.1\Stocks.baml
+C:\Users\guill\source\repos\BDD_MERLIN_MOUTY\BDD_MERLIN_MOUTY\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

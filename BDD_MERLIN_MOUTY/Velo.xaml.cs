@@ -83,15 +83,27 @@ namespace BDD_MERLIN_MOUTY
             string ligneB = ComboBoxLigneB.Text;
             string dateIntroB = TextBoxDateIntroB.Text;
             string dateDiscB = TextBoxDateDiscB.Text;
-            string insertQuery = $"insert into Bicyclette value ({numProdB},'{nomB}','{tailleB}',{prixB},'{ligneB}','{dateIntroB}',{dateDiscB})";
+            string insertQuery = $"insert into Bicyclette value ({numProdB},'{nomB}','{tailleB}',{prixB},'{ligneB}','{dateIntroB}','{dateDiscB}')";
             ExecuteQuery(insertQuery);
             BoxClear();
         }
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string numProdB = row.Row.ItemArray[0].ToString();
+            string insertQuery = $"delete from Bicyclette where numero_prod_B = '{numProdB}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = dataGrid.SelectedItem as DataRowView;
+            string numProdB = row.Row.ItemArray[0].ToString();
+            string nomB = row.Row.ItemArray[1].ToString();
+            string tailleB = row.Row.ItemArray[2].ToString();
+            string prixB = row.Row.ItemArray[3].ToString();
+            string ligneB = row.Row.ItemArray[4].ToString();
+            string insertQuery = $"update Bicyclette set nom_B = '{nomB}', grandeur_B = '{tailleB}', prix_B = '{prixB}', ligne_produit_B = '{ligneB}' where numero_prod_B = '{numProdB}'";
+            ExecuteQuery(insertQuery);
         }
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
