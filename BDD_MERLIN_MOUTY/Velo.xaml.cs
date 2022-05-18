@@ -29,6 +29,9 @@ namespace BDD_MERLIN_MOUTY
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Vide les TextBox
+        /// </summary>
         private void BoxClear()
         {
             TextBoxNumProdB.Text = "";
@@ -40,14 +43,24 @@ namespace BDD_MERLIN_MOUTY
             TextBoxDateDiscB.Text = "";
 
         }
+        /// <summary>
+        /// Ouvre la conenxion avec la base de donneés
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion avec la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query">Requête à executer</param>
         public void ExecuteQuery(String query)
         {
             try
@@ -74,6 +87,11 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Ajouter une bicyclette à la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
             string numProdB = TextBoxNumProdB.Text;
@@ -87,6 +105,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             BoxClear();
         }
+        /// <summary>
+        /// Retirer une bicyclette de la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -94,6 +117,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"delete from Bicyclette where numero_prod_B = '{numProdB}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Mettre à jour une bicyclette
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -105,6 +133,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"update Bicyclette set nom_B = '{nomB}', grandeur_B = '{tailleB}', prix_B = '{prixB}', ligne_produit_B = '{ligneB}' where numero_prod_B = '{numProdB}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Afficher les bicyclettes de la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -140,6 +173,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

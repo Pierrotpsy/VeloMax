@@ -25,6 +25,9 @@ namespace BDD_MERLIN_MOUTY
     {
         MySqlConnection connection = new MySqlConnection("SERVER=localhost;userid=test;password=password;DATABASE=VeloMax");
 
+        /// <summary>
+        /// Initialise la fenêtre stock
+        /// </summary>
         public Stocks()
         {
             InitializeComponent();
@@ -46,14 +49,25 @@ namespace BDD_MERLIN_MOUTY
             ComboBoxGrandeur.Visibility = Visibility.Hidden;
             AfficherGrandeur.Visibility = Visibility.Hidden;
         }
+        /// <summary>
+        /// ouvre la connexion avec la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion avec la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Affiche les bouttons nécessaire pour le stock pièce
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonStockP_Click(object sender, RoutedEventArgs e)
         {
             BouttonAfficherStockFaible.Visibility = Visibility.Hidden;
@@ -75,6 +89,11 @@ namespace BDD_MERLIN_MOUTY
             ComboBoxTypePiece.Visibility = Visibility.Visible;
             AfficherTypePièce.Visibility = Visibility.Visible;            
         }
+        /// <summary>
+        /// Affiche les bouttons nécessaire pour le stock vélos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonStockV_Click(object sender, RoutedEventArgs e)
         {
             BouttonAfficherStockFaible.Visibility = Visibility.Hidden;
@@ -96,6 +115,11 @@ namespace BDD_MERLIN_MOUTY
             ComboBoxGrandeur.Visibility = Visibility.Visible;
             AfficherGrandeur.Visibility = Visibility.Visible;
         }
+        /// <summary>
+        /// Affiche les boutons necéssaire pour le stock fournisseur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonStockF_Click(object sender, RoutedEventArgs e)
         {
             BouttonAfficherStockFaible.Visibility = Visibility.Hidden;
@@ -117,6 +141,11 @@ namespace BDD_MERLIN_MOUTY
             BouttonFournisseursOrderByDelaiF.Visibility = Visibility.Visible;
             BouttonFournisseursOrderByLibelleF.Visibility = Visibility.Visible;
         }
+        /// <summary>
+        /// Affiche les bouttons nécessaire pour le stock faible
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonStocksFaibles_Click(object sender, RoutedEventArgs e)
         {
             BouttonPiècesOrderByPrix.Visibility = Visibility.Hidden;
@@ -138,6 +167,11 @@ namespace BDD_MERLIN_MOUTY
             BouttonAfficherStockFaible.Visibility = Visibility.Visible;
             BouttonExporterXMLStockFaibles.Visibility = Visibility.Visible;
         }
+        /// <summary>
+        /// Trier les pièces par prix croissant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonPièceOrderByPrix_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -148,6 +182,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Trier les pièces par date de discontinuité
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonPièceOrderByDateDisc_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -158,6 +197,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Affiche les pièces selon le type sélectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficherTypePiece_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -175,6 +219,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Trier les vélos par prix croissant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonVelosOrderByPrixB_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -185,6 +234,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Trier les velos par taille 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonVelosOrderByGrandeurB_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -195,6 +249,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Afficher les vélos selon la ligne produit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficherLigneProduit_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -212,6 +271,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Afficher les vélos selon la taille
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficherGrandeur_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -229,6 +293,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Trier les pièces fournies par les fournisseurs selon les délais
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonFournisseursOrderByDelaiF_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -239,6 +308,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Trier les pièces fournies par les fournisseurs selon leur libelle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonFournisseursOrderByLibelleF_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -249,6 +323,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Afficher les pièces dont le sotck est faible
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficherStocksFaibles_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -259,6 +338,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Exporter le XML des stocks faibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonExporterXMLStocksFaibles_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -289,6 +373,11 @@ namespace BDD_MERLIN_MOUTY
             MessageBox.Show("Export réussi");
             CloseConnexion();
         }
+        /// <summary>
+        /// Retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

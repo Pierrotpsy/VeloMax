@@ -27,6 +27,9 @@ namespace BDD_MERLIN_MOUTY
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Vide les TextBox
+        /// </summary>
         private void BoxClear()
         {
             TextBoxSiretF.Text = "";
@@ -36,14 +39,24 @@ namespace BDD_MERLIN_MOUTY
             TextBoxDelaiF.Text = "";
             TextBoxPrixF.Text = "";
         }
+        /// <summary>
+        /// Ouvre la connexion avec la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion avec la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query"> Requête à executer </param>
         public void ExecuteQuery(String query)
         {
             try
@@ -70,6 +83,11 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Ajouter des pièces fournies par un fournisseur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
             string siretF = TextBoxSiretF.Text;
@@ -82,6 +100,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             BoxClear();
         }
+        /// <summary>
+        /// Retirer des pièces fournis par un fournisseur 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -90,6 +113,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"delete from Fourni where siret_F = '{siretF}' and numero_prod_P = '{numProdP}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Mettre à jour les pièces fournies par un fournisseur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -102,6 +130,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"update Fourni set numero_prod_F = '{numProdF}', nom_fournisseur_P = '{nomF}', delai_F = '{delaiF}', prix_F = '{prixF}' where siret_F = '{siretF}' and numero_prod_P='{numProdP}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Afficher les pièces fournies par un fournisseur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -136,6 +169,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

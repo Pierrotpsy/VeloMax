@@ -29,6 +29,9 @@ namespace BDD_MERLIN_MOUTY
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Vide les TextBox
+        /// </summary>
         private void BoxClear()
         {
             TextBoxEmailE.Text = "";
@@ -42,14 +45,24 @@ namespace BDD_MERLIN_MOUTY
             TextBoxProvinceE.Text = "";
             TextBoxRemiseE.Text = "";
         }
+        /// <summary>
+        /// Ouvre la connexion à la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion à la base de données 
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query">Requête à executer</param>
         public void ExecuteQuery(String query)
         {
             try
@@ -76,6 +89,11 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Permet d'ajotuer une entreprise à la base de données 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
             string emailE = TextBoxEmailE.Text;
@@ -92,6 +110,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             BoxClear();
         }
+        /// <summary>
+        /// Permet de retirer une entreprise de la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -99,6 +122,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"delete from Entreprise where email_E = '{emailE}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Permet de mettre à jours les infos d'une entreprise
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -115,6 +143,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"update Entreprise set nom_E = '{nomE}', telephone_E = '{telE}', nom_contact_E = '{nomContactE}', prenom_contact_E = '{prenomContactE}', rue_E = '{rueE}', ville_E = '{villeE}', code_postal_E = '{codePostalE}', province_E = '{provinceE}', remise_E = '{remiseE}' where email_E = '{emailE}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Affiche les entreprises 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -140,6 +173,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

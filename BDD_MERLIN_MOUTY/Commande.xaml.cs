@@ -29,6 +29,9 @@ namespace BDD_MERLIN_MOUTY
             InitializeComponent();
             AfficherCommande();
         }
+        /// <summary>
+        /// Vide les TextBox
+        /// </summary>
         private void BoxClear()
         {
             TextBoxNumCommande.Text = "";
@@ -38,14 +41,24 @@ namespace BDD_MERLIN_MOUTY
             TextBoxEmailE.Text = "";
             TextBoxEmailP.Text = "";
         }
+        /// <summary>
+        /// Ouvre la connexion avec la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la conenxion avec la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query"> Requête à executer </param>
         public void ExecuteQuery(String query)
         {
             try
@@ -72,6 +85,9 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Permet d'afficher la liste des commandes 
+        /// </summary>
         private void AfficherCommande()
         {
             OpenConnexion();
@@ -83,6 +99,9 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Permet d'afficher le catalogue des pièces
+        /// </summary>
         private void AfficherPièce()
         {
             OpenConnexion();
@@ -94,6 +113,9 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Permet d'afficher le catalogue des vélos
+        /// </summary>
         private void AfficherVélos()
         {
             OpenConnexion();
@@ -105,6 +127,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Permet d'ajouter une commande à la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
             string numCommande = TextBoxNumCommande.Text;
@@ -140,6 +167,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             AfficherCommande();
         }
+        /// <summary>
+        /// Permet de retirer une commande de la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -148,6 +180,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             AfficherCommande();
         }
+        /// <summary>
+        /// Permet de mettre à jour une commande 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -160,6 +197,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             AfficherCommande();
         }
+        /// <summary>
+        /// Permet d'afficher le contenu d'une commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonInfoCommande_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -172,16 +214,31 @@ namespace BDD_MERLIN_MOUTY
             dataGrid2.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Affiche le catalogue des pièces
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonInfoPiece_Click(object sender, RoutedEventArgs e)
         {
             AfficherPièce();
             isBike = false;
         }
+        /// <summary>
+        /// Affiche le catalogue des vélos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonInfoVelo_Click(object sender, RoutedEventArgs e)
         {
             AfficherVélos();
             isBike = true;
         }
+        /// <summary>
+        /// Permet de commander des pièces ou des vélos et de les ajouter à la commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonCommander_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -211,6 +268,11 @@ namespace BDD_MERLIN_MOUTY
             TextBoxQuantiteC.Text = "";
             AfficherCommande();
         }
+        /// <summary>
+        /// Retour au menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

@@ -24,6 +24,9 @@ namespace BDD_MERLIN_MOUTY
     public partial class Statistiques : Window
     {
         MySqlConnection connection = new MySqlConnection("SERVER=localhost;userid=test;password=password;DATABASE=VeloMax");
+        /// <summary>
+        /// Initialise la page et calcule les statistiques demandées
+        /// </summary>
         public Statistiques()
         {
             InitializeComponent();
@@ -37,12 +40,12 @@ namespace BDD_MERLIN_MOUTY
             stat2.CommandText = $"select avg(quantite_commande_B) from contient_B";
             Stats2.Text = $"Quantité moyenne \nde vélos commandés : \n{GetStringFromResquest(stat2)}";
             CloseConnexion();
-            //OpenConnexion();
-            //MySqlCommand stat3 = connection.CreateCommand();
-            //stat3.CommandText = $"(select email_P, sum(quantite_commande_P)prix_F from Particulier natural join Commande natural join contient_P natural join Fourni group by email_P union select email_P, sum(quantite_commande_B)prix_B from Particulier natural join Commande natural join contient_B natural join Bicyclette group by email_P union select email_E, sum(quantite_commande_P)prix_F from Entreprise natural join Commande natural join contient_P natural join Fourni group by email_E union select email_E, sum(quantite_commande_B)prix_B from Entreprise natural join Commande natural join contient_B natural join Bicyclette group by email_E)";
-            //Stats3.Text = $"{GetStringFromResquest(stat3)}";
-            //CloseConnexion();
         }
+        /// <summary>
+        /// Transforme le retour de la requête en string
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         public string GetStringFromResquest(MySqlCommand command)
         {
             MySqlDataReader reader;
@@ -54,14 +57,24 @@ namespace BDD_MERLIN_MOUTY
             }
             return a;
         }
+        /// <summary>
+        /// Ouvre la connexion avec la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion avec la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query">Requête à executer </param>
         public void ExecuteQuery(String query)
         {
             try
@@ -87,6 +100,11 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Affiche les clients des différents programmes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficherProgramme_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -115,6 +133,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Affiche les clients dont le programme arrive à expiration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonDateExpiration_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -125,6 +148,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Affiche les meilleurs clients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMeilleursClients_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -135,6 +163,11 @@ namespace BDD_MERLIN_MOUTY
             dataGrid.DataContext = dt;
             CloseConnexion();
         }
+        /// <summary>
+        /// Exporter un XML contenant les clients adhérant à un programme et leur date d'expiration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonExportXML_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -162,6 +195,11 @@ namespace BDD_MERLIN_MOUTY
             MessageBox.Show("Export réussi");
             CloseConnexion();
         }
+        /// <summary>
+        /// Retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

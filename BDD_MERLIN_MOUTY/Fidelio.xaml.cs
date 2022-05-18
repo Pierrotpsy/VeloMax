@@ -29,6 +29,9 @@ namespace BDD_MERLIN_MOUTY
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Vide les TextBox
+        /// </summary>
         private void BoxClear()
         {
             TextBoxNumProg.Text = "";
@@ -37,14 +40,24 @@ namespace BDD_MERLIN_MOUTY
             TextBoxDureeProg.Text = "";
             TextBoxRabaisProg.Text = "";
         }
+        /// <summary>
+        /// Ouvre la connexion avec la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion avec la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query"> Requête à executer </param>
         public void ExecuteQuery(String query)
         {
             try
@@ -71,6 +84,11 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Ajouter un nouveau programme Fidélio dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
             string numProg = TextBoxNumProg.Text;
@@ -82,6 +100,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             BoxClear();
         }
+        /// <summary>
+        /// Retirer un programme Fidélio de la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -89,6 +112,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"delete from Fidelio where numero_programme = '{numProg}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Mettre à jour un programme fidélio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -100,6 +128,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"update Fidelio set description_programme = '{descProg}', cout_programme = '{coutProg}', duree_programme = '{dureeProg}', rabais_programme = '{rabaisProg}' where  numero_programme = '{numProg}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Afficher les différents programme fidélio disponible dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -120,6 +153,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

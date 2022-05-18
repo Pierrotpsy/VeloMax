@@ -30,6 +30,9 @@ namespace BDD_MERLIN_MOUTY
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Vide toutes les TextBox
+        /// </summary>
         private void BoxClear()
         {
             TextBoxEmailP.Text = "";
@@ -41,14 +44,24 @@ namespace BDD_MERLIN_MOUTY
             TextBoxProvinceP.Text = "";
             TextBoxTelP.Text = "";
         }
+        /// <summary>
+        /// Ouvre la connexion à la base de données
+        /// </summary>
         public void OpenConnexion()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Ferme la connexion à la base de données
+        /// </summary>
         public void CloseConnexion()
         {
             connection.Close();
         }
+        /// <summary>
+        /// Execute la requête demandée si possible ou retourne l'erreur
+        /// </summary>
+        /// <param name="query"> Requête à executer </param>
         public void ExecuteQuery(String query)
         {
             try
@@ -75,6 +88,11 @@ namespace BDD_MERLIN_MOUTY
                 CloseConnexion();
             }
         }
+        /// <summary>
+        /// Ajouter un nouveau client particulier dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAjouter_Click(object sender, RoutedEventArgs e)
         {
             string emailP = TextBoxEmailP.Text;
@@ -89,6 +107,11 @@ namespace BDD_MERLIN_MOUTY
             ExecuteQuery(insertQuery);
             BoxClear();
         }
+        /// <summary>
+        /// Retirer un client particulier dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonRetirer_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -96,6 +119,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery = $"delete from Particulier where email_P = '{emailP}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Mettre à jour les infos d'un client particulier dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMAJ_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = dataGrid.SelectedItem as DataRowView;
@@ -110,6 +138,11 @@ namespace BDD_MERLIN_MOUTY
             string insertQuery= $"update Particulier set nom_P = '{nomP}', prenom_p = '{prenomP}', rue_P = '{rueP}', ville_P = '{villeP}', code_postal_P = '{codePostalP}', province_P = '{provinceP}', telephone_P = '{telP}' where email_P = '{emailP}'";
             ExecuteQuery(insertQuery);
         }
+        /// <summary>
+        /// Afficher les clients de la base de données 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonAfficher_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -140,6 +173,11 @@ namespace BDD_MERLIN_MOUTY
             BoxClear();
             CloseConnexion();
         }
+        /// <summary>
+        /// Exporter un fichier JSON contenant les infos des clients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonExporterJSON_Click(object sender, RoutedEventArgs e)
         {
             OpenConnexion();
@@ -180,6 +218,11 @@ namespace BDD_MERLIN_MOUTY
             CloseConnexion();
             MessageBox.Show("Export Réussi");
         }
+        /// <summary>
+        /// Retour vers le menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BouttonMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
